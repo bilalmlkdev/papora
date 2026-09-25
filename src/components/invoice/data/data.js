@@ -1,0 +1,175 @@
+export const defaultInvoiceData = {
+  invoiceNumber: "INV-0001",
+  serialNumber: "0001",
+  issueDate: "2025-09-12",
+  dueDate: "2025-10-12",
+  symbol: "$",
+  currency: "USD",
+  theme: "light",
+  billedBy: {
+    name: "Bilal Malik",
+    contact: "bilalmlkdev@gmail.com",
+    address: "Pakistan",
+  },
+  billedTo: {
+    name: "Your Client",
+    contact: "client@example.com",
+    address: "Client address",
+  },
+  items: [
+    {
+      name: "UI/UX Design",
+      description: "Landing page redesigning",
+      qty: 1,
+      price: 1000.0,
+    },
+    {
+      name: "Backend API",
+      description: "User authentication fixes",
+      qty: 1,
+      price: 800.0,
+    },
+  ],
+  tax: 50.0,
+  payment: [
+    { label: "Bank Code", value: "0000" },
+    { label: "Payment Method", value: "Bank transfer" },
+    { label: "Account Number", value: "0000 0000 0000" },
+    { label: "Bank Name", value: "Your Bank" },
+    { label: "Account Name", value: "Bilal Malik" },
+  ],
+  termsSection: {
+    title: "Terms & Condition",
+    text: 'Early payment discount: "Receive a 2% discount if paid within 10 days; otherwise, the total amount is due in 30 days".',
+  },
+  thankyouSection: {
+    title: "Thank you for your business!",
+    text: "For any billing questions, please contact us at [ bilalmlkdev@gmail.com ]",
+  },
+  signatureText: "Your Signature",
+  customFields: {
+    basic: [],
+    company: [],
+    client: [],
+  },
+};
+
+export const currency = {
+  countries: [
+    {
+      name: "United States",
+      flag: "🇺🇸",
+      currency: "US Dollar",
+      code: "USD",
+      symbol: "$",
+    },
+    {
+      name: "India",
+      flag: "🇮🇳",
+      currency: "Indian Rupee",
+      code: "INR",
+      symbol: "₹",
+    },
+    {
+      name: "United Kingdom",
+      flag: "🇬🇧",
+      currency: "Pound Sterling",
+      code: "GBP",
+      symbol: "£",
+    },
+    {
+      name: "European Union",
+      flag: "🇪🇺",
+      currency: "Euro",
+      code: "EUR",
+      symbol: "€",
+    },
+    {
+      name: "Japan",
+      flag: "🇯🇵",
+      currency: "Japanese Yen",
+      code: "JPY",
+      symbol: "¥",
+    },
+    {
+      name: "China",
+      flag: "🇨🇳",
+      currency: "Chinese Yuan",
+      code: "CNY",
+      symbol: "¥",
+    },
+    {
+      name: "Canada",
+      flag: "🇨🇦",
+      currency: "Canadian Dollar",
+      code: "CAD",
+      symbol: "$",
+    },
+    {
+      name: "Australia",
+      flag: "🇦🇺",
+      currency: "Australian Dollar",
+      code: "AUD",
+      symbol: "$",
+    },
+    {
+      name: "Russia",
+      flag: "🇷🇺",
+      currency: "Russian Ruble",
+      code: "RUB",
+      symbol: "₽",
+    },
+    {
+      name: "South Korea",
+      flag: "🇰🇷",
+      currency: "South Korean Won",
+      code: "KRW",
+      symbol: "₩",
+    },
+    {
+      name: "Brazil",
+      flag: "🇧🇷",
+      currency: "Brazilian Real",
+      code: "BRL",
+      symbol: "R$",
+    },
+    {
+      name: "Mexico",
+      flag: "🇲🇽",
+      currency: "Mexican Peso",
+      code: "MXN",
+      symbol: "$",
+    },
+    {
+      name: "Saudi Arabia",
+      flag: "🇸🇦",
+      currency: "Saudi Riyal",
+      code: "SAR",
+      symbol: "﷼",
+    },
+    {
+      name: "Switzerland",
+      flag: "🇨🇭",
+      currency: "Swiss Franc",
+      code: "CHF",
+      symbol: "CHF",
+    },
+    {
+      name: "South Africa",
+      flag: "🇿🇦",
+      currency: "South African Rand",
+      code: "ZAR",
+      symbol: "R",
+    },
+  ],
+};
+
+export { themes } from "./pdfThemes";
+
+export const editorInputClass =
+  "w-full text-xs px-3 py-2 border border-neutral-300 rounded-sm bg-white transition-colors focus:outline-none focus:border-neutral-900 focus:ring-1 focus:ring-neutral-900/10";
+
+export const editorLabelClass = "block text-xs font-medium text-neutral-700 mb-1";
+
+export const primaryButtonClass = "flex-1 px-4 py-2 bg-neutral-900 text-white rounded-sm hover:bg-neutral-800 cursor-pointer disabled:bg-neutral-300 disabled:cursor-not-allowed transition-colors"
+export const secondaryButtonClass = "flex-1 px-4 py-2 border border-neutral-300 text-neutral-700 rounded-sm hover:bg-neutral-50 cursor-pointer w-full transition-colors"
