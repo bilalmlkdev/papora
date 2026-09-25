@@ -1,8 +1,8 @@
 import React from "react";
 import { Document, Page, Text, View, Image } from "@react-pdf/renderer";
-import { createPdfStyles } from "./pdfStylesFactory";
+import { createPdfStyles } from "./pdfStyles.js";
 
-const InvoicePDFTemplate = ({ data }) => {
+const InvoiceSheet = ({ data }) => {
   const styles = createPdfStyles(data.theme);
   const subtotal =
     data.items?.reduce(
@@ -181,4 +181,4 @@ const InvoicePDFTemplate = ({ data }) => {
   );
 };
 
-export default InvoicePDFTemplate;
+export default InvoiceSheet;

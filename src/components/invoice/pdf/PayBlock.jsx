@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import { usePdfTheme } from "./usePdfTheme";
+import { useTheme } from "./useTheme.js";
 
-const PaymentSection = ({ payment, signature, text }) => {
-  const t = usePdfTheme();
+const PayBlock = ({ payment, signature, text }) => {
+  const t = useTheme();
   const leftRef = useRef(null);
   const [leftHeight, setLeftHeight] = useState(0);
 
@@ -46,4 +46,4 @@ const PaymentSection = ({ payment, signature, text }) => {
   );
 };
 
-export default PaymentSection;
+export default PayBlock;

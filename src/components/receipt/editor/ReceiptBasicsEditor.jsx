@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { Plus, Trash2, Edit3, Save, X } from "lucide-react";
-import Accordion from "../../common/Accordion";
-import Dropdown from "../../common/Dropdown";
-import DateField from "../../common/DateField";
-import { todayIso } from "../../common/dateUtils";
+import SectionFold from "../../shared/SectionFold.jsx";
+import OptionMenu from "../../shared/OptionMenu.jsx";
+import DateInput from "../../shared/DateInput.jsx";
+import { todayIso } from "../../shared/calendarHelpers.js";
 import {
   primaryButtonClass,
   secondaryButtonClass,
-} from "../../invoice/data/data";
+} from "../../invoice/data/defaults.js";
 
-const ReceiptBasicInfoEditor = ({
+const ReceiptBasicsEditor = ({
   openSections,
   toggleEdit,
   toggleSection,
@@ -57,8 +57,8 @@ const ReceiptBasicInfoEditor = ({
       : "";
 
   return (
-    <Accordion
-      title="Receipt Details"
+    <SectionFold
+      title="Receipt basics"
       isOpen={openSections.basic}
       onToggle={() => toggleSection("basic")}
       showEditIcon={true}
@@ -78,7 +78,7 @@ const ReceiptBasicInfoEditor = ({
             </div>
             <div>
               <label className={labelClass}>Currency</label>
-              <Dropdown
+              <OptionMenu
                 value={receiptData.currency}
                 onChange={(country) => updateCurrency(country.code)}
                 options={currency.countries}
@@ -89,7 +89,7 @@ const ReceiptBasicInfoEditor = ({
             </div>
             <div>
               <label className={labelClass}>Receipt Date</label>
-              <DateField
+              <DateInput
                 value={receiptData.receiptDate || ""}
                 onChange={(value) => updateBasicInfo("receiptDate", value)}
                 max={todayIso()}
@@ -99,7 +99,7 @@ const ReceiptBasicInfoEditor = ({
             </div>
             <div>
               <label className={labelClass}>Theme</label>
-              <Dropdown
+              <OptionMenu
                 value={receiptData.theme}
                 onChange={(theme) => updateTheme(theme.value)}
                 options={themes}
@@ -208,10 +208,10 @@ const ReceiptBasicInfoEditor = ({
           )}
         </div>
       )}
-    </Accordion>
+    </SectionFold>
   );
 };
 
-export default ReceiptBasicInfoEditor;
+export default ReceiptBasicsEditor;
 
 

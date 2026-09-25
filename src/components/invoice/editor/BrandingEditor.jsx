@@ -1,8 +1,8 @@
 import React from 'react'
-import Accordion from "../../common/Accordion";
+import SectionFold from "../../shared/SectionFold.jsx";
 import {ImageMinus, ImagePlus, PenLine, PenOff, PenTool, X} from 'lucide-react'
 
-const ImageEditor = ({
+const BrandingEditor = ({
   openSections,
   toggleSection,
   logoImage,
@@ -16,8 +16,8 @@ const ImageEditor = ({
   invoiceData,
 }) => {
   return (
-    <Accordion
-      title="Company Logo & Signature"
+    <SectionFold
+      title="Logo and signature"
       isOpen={openSections.images}
       onToggle={() => toggleSection("images")}
     >
@@ -133,8 +133,8 @@ const ImageEditor = ({
           />
         </div>
       </div>
-    </Accordion>
+    </SectionFold>
   );
 };
 
-export default ImageEditor
+export default BrandingEditor

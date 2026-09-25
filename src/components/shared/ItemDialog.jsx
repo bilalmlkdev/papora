@@ -1,7 +1,7 @@
 import React from 'react'
 import {X} from 'lucide-react'
 
-const CustomItemModal = ({ isOpen, onClose, title, children }) => {
+const ItemDialog = ({ isOpen, onClose, title, children }) => {
   if (!isOpen) return null;
 
   return (
@@ -22,4 +22,4 @@ const CustomItemModal = ({ isOpen, onClose, title, children }) => {
   );
 };
 
-export default CustomItemModal
+export default ItemDialog

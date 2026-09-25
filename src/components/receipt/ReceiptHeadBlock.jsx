@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import { usePdfTheme } from "../invoice/pdf/usePdfTheme";
+import { useTheme } from "../invoice/pdf/useTheme.js";
 
-const ReceiptHeader = ({ receipt, logo, customFields = [] }) => {
-  const t = usePdfTheme();
+const ReceiptHeadBlock = ({ receipt, logo, customFields = [] }) => {
+  const t = useTheme();
   const leftRef = useRef(null);
   const [leftHeight, setLeftHeight] = useState(0);
 
@@ -42,4 +42,4 @@ const ReceiptHeader = ({ receipt, logo, customFields = [] }) => {
   );
 };
 
-export default ReceiptHeader;
+export default ReceiptHeadBlock;

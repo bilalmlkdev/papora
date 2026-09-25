@@ -1,8 +1,8 @@
 import React from "react";
-import { usePdfTheme } from "./usePdfTheme";
+import { useTheme } from "./useTheme.js";
 
-const BillingSection = ({ sender, receiver, customFields = {} }) => {
-  const t = usePdfTheme();
+const BilledToBlock = ({ sender, receiver, customFields = {} }) => {
+  const t = useTheme();
 
   return (
     <div className={`relative flex justify-between items-start border-b border-dashed ${t.border} w-full mb-4`}>
@@ -47,4 +47,4 @@ const BillingSection = ({ sender, receiver, customFields = {} }) => {
   );
 };
 
-export default BillingSection;
+export default BilledToBlock;

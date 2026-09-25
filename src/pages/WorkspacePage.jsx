@@ -1,17 +1,17 @@
 import React from "react";
-import { InvoiceProvider } from "../components/invoice/editor/InvoiceDataService";
-import PdfInvoice from "../components/invoice/PdfInvoice";
+import { InvoiceProvider } from "../components/invoice/editor/InvoiceProvider.jsx";
+import InvoiceWorkspace from "../components/invoice/InvoiceWorkspace.jsx";
 import { ReceiptProvider } from "../components/receipt";
-import PdfReceipt from "../components/receipt/Receipt";
+import ReceiptWorkspace from "../components/receipt/ReceiptWorkspace.jsx";
 
-export default function DocumentsPage({ activeView, onSelect }) {
+export default function WorkspacePage({ activeView, onSelect }) {
   return activeView === "invoice" ? (
     <InvoiceProvider>
-      <PdfInvoice onSelect={onSelect} />
+      <InvoiceWorkspace onSelect={onSelect} />
     </InvoiceProvider>
   ) : (
     <ReceiptProvider>
-      <PdfReceipt onSelect={onSelect} />
+      <ReceiptWorkspace onSelect={onSelect} />
     </ReceiptProvider>
   );
 }

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import Logo from "./Logo";
+import BrandMark from "./BrandMark.jsx";
 
-const Navbar = ({
+const TopBar = ({
   onMenuToggle,
   onMenuClose,
   isMenuOpen,
@@ -40,13 +40,13 @@ const Navbar = ({
       <div className="mx-auto flex h-16 max-w-full bg-white items-center justify-between">
         {isMobile ? (
           <div className="flex w-full items-center justify-between px-4 md:px-6">
-            <Logo className="h-8 md:h-12" />
+            <BrandMark className="h-8 md:h-12" />
             <button
               className="flex items-center group"
               onClick={isMenuOpen ? handleMenuClose : handleMenuToggle}
               type="button"
               style={{ touchAction: "manipulation" }}
-              title={isMenuOpen ? "Close Menu" : "Open Menu"}
+              title={isMenuOpen ? "Close menu" : "Open menu"}
             >
               {isMenuOpen ? (
                 <X
@@ -66,7 +66,7 @@ const Navbar = ({
         ) : (
           <>
             <div className="flex w-[17%] items-center border-x-none h-full px-4 md:px-6 xl:border-x xl:border-neutral-100">
-              <Logo className="h-10" />
+              <BrandMark className="h-10" />
             </div>
           </>
         )}
@@ -75,4 +75,4 @@ const Navbar = ({
   );
 };
 
-export default Navbar;
+export default TopBar;

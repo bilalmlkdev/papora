@@ -1,5 +1,5 @@
 import { StyleSheet } from "@react-pdf/renderer";
-import { getPdfTheme } from "../data/pdfThemes";
+import { getPdfTheme } from "../data/themePresets.js";
 
 export const createPdfStyles = (themeValue = "light") => {
   const c = getPdfTheme(themeValue).pdf;

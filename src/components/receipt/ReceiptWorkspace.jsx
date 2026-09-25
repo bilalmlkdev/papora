@@ -1,21 +1,21 @@
 import React, { useState } from "react";
-import ReceiptEditor from "./editor/ReceiptEditor";
-import { useReceipt } from "./editor/useReceipt";
-import Navbar from "../ui/Navbar";
-import Sidebar from "../ui/Sidebar";
+import ReceiptForm from "./editor/ReceiptForm.jsx";
+import { useReceiptDoc } from "./editor/useReceiptDoc.js";
+import TopBar from "../shell/TopBar.jsx";
+import SideNav from "../shell/SideNav.jsx";
 import { EditIcon } from "lucide-react";
-import ReceiptHeader from "./ReceiptHeader";
-import BillingSection from "../invoice/pdf/BillingSection";
-import ItemsSection from "../invoice/pdf/ItemsSection";
-import ReceiptCalculationSection from "./ReceiptCalculationSection";
-import PaymentSection from "../invoice/pdf/PaymentSection";
-import NotesOrTermsSection from "../invoice/pdf/NotesOrTermsSection";
-import ThankyouSection from "../invoice/pdf/ThankyouSection";
-import { PdfThemeProvider } from "../invoice/pdf/PdfThemeProvider";
-import { normalizeTheme, getPdfTheme } from "../invoice/data/pdfThemes";
+import ReceiptHeadBlock from "./ReceiptHeadBlock.jsx";
+import BilledToBlock from "../invoice/pdf/BilledToBlock.jsx";
+import ItemsBlock from "../invoice/pdf/ItemsBlock.jsx";
+import ReceiptTotalsBlock from "./ReceiptTotalsBlock.jsx";
+import PayBlock from "../invoice/pdf/PayBlock.jsx";
+import TermsBlock from "../invoice/pdf/TermsBlock.jsx";
+import ThanksBlock from "../invoice/pdf/ThanksBlock.jsx";
+import { ThemeProvider } from "../invoice/pdf/ThemeProvider.jsx";
+import { normalizeTheme, getPdfTheme } from "../invoice/data/themePresets.js";
 
-const PdfReceipt = ({ onSelect }) => {
-  const { receiptData, logoImage, signatureImage } = useReceipt();
+const ReceiptWorkspace = ({ onSelect }) => {
+  const { receiptData, logoImage, signatureImage } = useReceiptDoc();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const defaultLogo =
@@ -58,17 +58,17 @@ const PdfReceipt = ({ onSelect }) => {
 
   return (
     <div className="flex flex-col w-full xl:h-screen bg-white xl:overflow-hidden pt-16">
-      <Navbar onMenuToggle={handleMenuToggle} onMenuClose={handleMenuClose} isMenuOpen={isMobileMenuOpen} />
+      <TopBar onMenuToggle={handleMenuToggle} onMenuClose={handleMenuClose} isMenuOpen={isMobileMenuOpen} />
       <div className="flex flex-col md:flex-row w-full flex-1 overflow-hidden">
         <div className="hidden xl:block xl:w-[17%] flex-shrink-0">
-          <Sidebar active="receipt" onSelect={onSelect} />
+          <SideNav active="receipt" onSelect={onSelect} />
         </div>
         {isMobileMenuOpen && (
           <>
             <div className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden" onClick={handleMenuClose} style={{ top: "64px" }} />
             <div className="fixed left-0 w-full bg-white z-50 md:hidden shadow-lg transform transition-transform duration-300 ease-in-out" style={{ top: "64px", height: "calc(100vh - 64px)", position: "fixed" }}>
               <div className="h-full overflow-y-auto">
-                <Sidebar active="receipt" onSelect={onSelect} />
+                <SideNav active="receipt" onSelect={onSelect} />
               </div>
             </div>
           </>
@@ -80,11 +80,11 @@ const PdfReceipt = ({ onSelect }) => {
           </div>
           <div className="flex flex-col xl:flex-row w-full flex-1 xl:overflow-hidden">
             <div className="w-full xl:w-[45%] xl:overflow-y-auto">
-              <ReceiptEditor />
+              <ReceiptForm />
             </div>
             <div className="w-full xl:w-[55%] py-6 bg-neutral-50/50 xl:overflow-y-auto text-xs">
               <div className="bg-white shadow-lg max-w-[595px] mx-auto">
-                <PdfThemeProvider theme={normalizeTheme(receiptData.theme)}>
+                <ThemeProvider theme={normalizeTheme(receiptData.theme)}>
                   <div
                     className={`w-[595px] min-h-[842px] font-sans text-sm p-6 ${getPdfTheme(normalizeTheme(receiptData.theme)).page}`}
                   >
@@ -93,15 +93,15 @@ const PdfReceipt = ({ onSelect }) => {
                         Receipt {invoice.invoiceNumber}
                       </h1>
                     </div>
-                  <ReceiptHeader logo={logoImage || defaultLogo} receipt={{ receiptNumber: invoice.invoiceNumber, receiptDate: invoice.issueDate, currency: invoice.currency }} customFields={receiptData.customFields.basic} />
-                  <BillingSection sender={{ ...details.sender, header: "Received By" }} receiver={{ ...details.receiver, header: "Received From" }} customFields={receiptData.customFields} />
-                  <ItemsSection product={product} />
-                  <ReceiptCalculationSection product={product} />
-                  <PaymentSection payment={payment} signature={signatureImage || defaultSignature} text={receiptData.signatureText} />
-                  <NotesOrTermsSection title={receiptData.termsSection.title} text={receiptData.termsSection.text} />
-                  <ThankyouSection title={receiptData.thankyouSection.title} text={receiptData.thankyouSection.text} />
+                  <ReceiptHeadBlock logo={logoImage || defaultLogo} receipt={{ receiptNumber: invoice.invoiceNumber, receiptDate: invoice.issueDate, currency: invoice.currency }} customFields={receiptData.customFields.basic} />
+                  <BilledToBlock sender={{ ...details.sender, header: "Received By" }} receiver={{ ...details.receiver, header: "Received From" }} customFields={receiptData.customFields} />
+                  <ItemsBlock product={product} />
+                  <ReceiptTotalsBlock product={product} />
+                  <PayBlock payment={payment} signature={signatureImage || defaultSignature} text={receiptData.signatureText} />
+                  <TermsBlock title={receiptData.termsSection.title} text={receiptData.termsSection.text} />
+                  <ThanksBlock title={receiptData.thankyouSection.title} text={receiptData.thankyouSection.text} />
                   </div>
-                </PdfThemeProvider>
+                </ThemeProvider>
               </div>
             </div>
           </div>
@@ -111,6 +111,6 @@ const PdfReceipt = ({ onSelect }) => {
   );
 };
 
-export default PdfReceipt;
+export default ReceiptWorkspace;
 
 

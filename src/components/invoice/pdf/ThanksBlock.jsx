@@ -1,8 +1,8 @@
 import React from "react";
-import { usePdfTheme } from "./usePdfTheme";
+import { useTheme } from "./useTheme.js";
 
-const ThankyouSection = ({ title, text }) => {
-  const t = usePdfTheme();
+const ThanksBlock = ({ title, text }) => {
+  const t = useTheme();
 
   if (!title && !text) return null;
 
@@ -14,4 +14,4 @@ const ThankyouSection = ({ title, text }) => {
   );
 };
 
-export default ThankyouSection;
+export default ThanksBlock;

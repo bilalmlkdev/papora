@@ -1,4 +1,4 @@
-export { ReceiptProvider } from "./editor/ReceiptDataService";
-export { useReceipt } from "./editor/useReceipt";export { default as PdfReceipt } from "./Receipt";
+export { ReceiptProvider } from "./editor/ReceiptProvider.jsx";
+export { useReceiptDoc } from "./editor/useReceiptDoc.js";export { default as ReceiptWorkspace } from "./ReceiptWorkspace.jsx";
 
 

@@ -18,13 +18,13 @@ const BUG_REPORT_EMAIL =
 const navLinkClass =
   "ml-6 flex cursor-pointer items-center gap-2 mt-3 text-neutral-500 transition-colors hover:text-neutral-900";
 
-const Sidebar = ({ active = "invoice", onSelect = () => {} }) => {
+const SideNav = ({ active = "invoice", onSelect = () => {} }) => {
   return (
     <div className="flex h-full min-h-[calc(100vh-4rem)] w-full flex-col bg-white px-4 py-4 border-r border-neutral-100 animate-slide-in">
       <div>
         <div className="flex justify-start items-center gap-2 bg-neutral-50/50 rounded-sm px-4 py-1">
           {/* <Wallet className="text-neutral-900" size={12} /> */}
-          <h1 className="text-neutral-900 text-xs">Finance</h1>
+          <h1 className="text-neutral-900 text-xs">Workspace</h1>
         </div>
         <button
           onClick={() => onSelect("invoice")}
@@ -39,7 +39,7 @@ const Sidebar = ({ active = "invoice", onSelect = () => {} }) => {
               active === "invoice" ? "text-neutral-900 text-sm" : "text-neutral-500 text-sm"
             }
           >
-            Create Invoice
+            New invoice
           </h1>
         </button>
         <button
@@ -55,7 +55,7 @@ const Sidebar = ({ active = "invoice", onSelect = () => {} }) => {
               active === "receipt" ? "text-neutral-900 text-sm" : "text-neutral-500 text-sm"
             }
           >
-            Create Receipt
+            New receipt
           </h1>
         </button>
       </div>
@@ -73,7 +73,7 @@ const Sidebar = ({ active = "invoice", onSelect = () => {} }) => {
 
       <div className="mt-auto">
         <div className="mt-6 flex justify-start items-center gap-2 bg-neutral-50/50 rounded-sm px-4 py-1">
-          <h1 className="text-neutral-900 text-xs">More free tools</h1>
+          <h1 className="text-neutral-900 text-xs">Other free tools</h1>
         </div>
         {OPEN_SOURCE_PROJECTS.map((project) => {
           const Icon = project.icon;
@@ -92,7 +92,7 @@ const Sidebar = ({ active = "invoice", onSelect = () => {} }) => {
         })}
 
         <div className="mt-6 flex justify-start items-center gap-2 bg-neutral-50/50 rounded-sm px-4 py-1">
-          <h1 className="text-neutral-900 text-xs">Support</h1>
+          <h1 className="text-neutral-900 text-xs">Support the project</h1>
         </div>
         <a
           href={LINKS.sponsor}
@@ -101,7 +101,7 @@ const Sidebar = ({ active = "invoice", onSelect = () => {} }) => {
           className={navLinkClass}
         >
           <Heart className="text-red-500 fill-red-500" size={12} />
-          <h1 className="text-sm text-neutral-500">Sponsor us</h1>
+          <h1 className="text-sm text-neutral-500">Buy me a coffee</h1>
         </a>
         <a
           href={LINKS.github}
@@ -110,7 +110,7 @@ const Sidebar = ({ active = "invoice", onSelect = () => {} }) => {
           className={navLinkClass}
         >
           <Github className="text-neutral-500" size={12} />
-          <h1 className="text-sm text-neutral-500">Star us on GitHub</h1>
+          <h1 className="text-sm text-neutral-500">Star on GitHub</h1>
         </a>
         <a
           href={LINKS.twitter}
@@ -119,7 +119,7 @@ const Sidebar = ({ active = "invoice", onSelect = () => {} }) => {
           className={navLinkClass}
         >
           <ArrowUpRight className="text-neutral-500" size={12} />
-          <h1 className="text-sm text-neutral-500">Follow us on Twitter</h1>
+          <h1 className="text-sm text-neutral-500">Follow on X</h1>
         </a>
         <div className="mt-4 px-2">
           <a
@@ -127,7 +127,7 @@ const Sidebar = ({ active = "invoice", onSelect = () => {} }) => {
             className="flex w-full cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-sm bg-gradient-to-br from-red-400 to-red-500 px-3 py-2 text-white transition-all duration-200 hover:from-red-500 hover:to-red-600"
           >
             <Bug size={14} />
-            <span className="text-sm">Found a bug?  Tell us</span>
+            <span className="text-sm">Spotted a bug? Report it</span>
             <ArrowUpRight size={14} strokeWidth={2.5} />
           </a>
         </div>
@@ -136,4 +136,4 @@ const Sidebar = ({ active = "invoice", onSelect = () => {} }) => {
   );
 };
 
-export default Sidebar;
+export default SideNav;

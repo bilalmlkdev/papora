@@ -1,8 +1,8 @@
 import React from 'react'
-import Accordion from "../../common/Accordion";
+import SectionFold from "../../shared/SectionFold.jsx";
 import{Plus, Trash2} from 'lucide-react'
 
-const PaymentEditor = ({
+const PayDetailsEditor = ({
   openSections,
   toggleSection,
   toggleEdit,
@@ -15,8 +15,8 @@ const PaymentEditor = ({
   buttonClass,
 }) => {
   return (
-    <Accordion
-      title="Payment Information"
+    <SectionFold
+      title="Payment details"
       isOpen={openSections.payment}
       onToggle={() => toggleSection("payment")}
       showEditIcon={true}
@@ -58,8 +58,8 @@ const PaymentEditor = ({
           <h1 className="text-sm font-mono">Add New Field</h1>
         </button>
       </div>
-    </Accordion>
+    </SectionFold>
   );
 };
 
-export default PaymentEditor
+export default PayDetailsEditor

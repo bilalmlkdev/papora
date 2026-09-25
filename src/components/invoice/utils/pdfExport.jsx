@@ -1,5 +1,5 @@
 import { pdf } from "@react-pdf/renderer";
-import InvoicePDFTemplate from "./InvoicePDFTemplate"; // Import your template
+import InvoiceSheet from "./InvoiceSheet.jsx"; // Import your template
 
 export const createPdfBlob = async ({ invoiceData, logoImage, signatureImage, template }) => {
     const Template = getPdfTemplate(template);
@@ -33,7 +33,7 @@ const getPdfTemplate = (template) => {
         case "invoice":
         case "default":
         default:
-            return InvoicePDFTemplate;
+            return InvoiceSheet;
     }
 };
 

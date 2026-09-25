@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
-const Dropdown = ({
+const OptionMenu = ({
   value,
   onChange,
   options,
@@ -52,4 +52,4 @@ const Dropdown = ({
   );
 };
 
-export default Dropdown;
+export default OptionMenu;

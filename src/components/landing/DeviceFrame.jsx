@@ -1,4 +1,4 @@
-export default function PhoneFrame({ children, className = "" }) {
+export default function DeviceFrame({ children, className = "" }) {
   return (
     <div
       className={`relative aspect-[71.6/140] w-[260px] rounded-[2.375rem] bg-[#1c1c1e] shadow-[0_22px_55px_-14px_rgba(0,0,0,0.28)] sm:w-[216px] sm:rounded-[1.96875rem] md:w-[256px] md:rounded-[2.3375rem] ${className}`}

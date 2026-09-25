@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { X } from "lucide-react";
-import { primaryButtonClass, secondaryButtonClass } from "../invoice/data/data";
+import { primaryButtonClass, secondaryButtonClass } from "../invoice/data/defaults.js";
 
-const CustomFieldModal = ({
+const FieldDialog = ({
   isOpen,
   onClose,
   onAdd,
@@ -82,4 +82,4 @@ const CustomFieldModal = ({
   );
 };
 
-export default CustomFieldModal;
+export default FieldDialog;

@@ -4,18 +4,18 @@ import { Check } from "lucide-react";
 const STEPS = [
   {
     id: "fill",
-    title: "Fill in your details",
+    title: "Add your details",
     subtitle: "Business, client, and items",
   },
   {
     id: "generate",
-    title: "Generating invoice",
-    subtitle: "Building your document",
+    title: "Building the invoice",
+    subtitle: "Assembling the page",
   },
   {
     id: "ready",
     title: "Invoice ready",
-    subtitle: "Everything looks good",
+    subtitle: "Totals and layout in place",
   },
   {
     id: "download",
@@ -26,9 +26,9 @@ const STEPS = [
 
 function InvoiceCard({ lines = 0, showTotal = false }) {
   const rows = [
-    { name: "Website design", amount: 850 },
+    { name: "Landing page build", amount: 850 },
     { name: "Revisions", amount: 100 },
-    { name: "Consultation", amount: 50 },
+    { name: "Consultation call", amount: 50 },
   ];
 
   return (
@@ -36,7 +36,7 @@ function InvoiceCard({ lines = 0, showTotal = false }) {
       <div className="mb-2 flex items-start justify-between gap-2">
         <div>
           <p className="text-[7px] font-semibold tracking-wide text-neutral-900">INVOICE</p>
-          <p className="mt-0.5 text-[6px] text-neutral-400">#1042 · Jul 2</p>
+          <p className="mt-0.5 text-[6px] text-neutral-400">#1042 - Jul 2</p>
         </div>
         <div className="h-4 w-4 rounded border border-neutral-200 bg-neutral-50" />
       </div>
@@ -94,9 +94,9 @@ function PhoneStatusBar() {
 
 function FillDetailsVisual() {
   const fields = [
-    { label: "Your business", value: "Acme Studio" },
-    { label: "Client", value: "Northwind Co." },
-    { label: "Item", value: "Website design" },
+    { label: "Your business", value: "Bluepine Studio" },
+    { label: "Client", value: "Harborline Co." },
+    { label: "Item", value: "Landing page build" },
     { label: "Amount", value: "$1,000" },
   ];
 
@@ -155,7 +155,7 @@ const visuals = {
   download: DownloadVisual,
 };
 
-export default function InvoiceSkeleton() {
+export default function PhoneWalkthrough() {
   const [step, setStep] = useState(0);
 
   useEffect(() => {

@@ -1,8 +1,8 @@
 import React from "react";
 import { Document, Page, Text, View, Image } from "@react-pdf/renderer";
-import { createPdfStyles } from "../../invoice/utils/pdfStylesFactory";
+import { createPdfStyles } from "../../invoice/utils/pdfStyles.js";
 
-const ReceiptPDFTemplate = ({ data }) => {
+const ReceiptSheet = ({ data }) => {
   const styles = createPdfStyles(data.theme);
   const subtotal =
     data.items?.reduce((sum, item) => sum + (item.qty || 0) * (item.price || 0), 0) || 0;
@@ -173,4 +173,4 @@ const ReceiptPDFTemplate = ({ data }) => {
   );
 };
 
-export default ReceiptPDFTemplate;
+export default ReceiptSheet;

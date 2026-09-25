@@ -1,7 +1,7 @@
 import React from 'react'
-import Accordion from "../../common/Accordion";
+import SectionFold from "../../shared/SectionFold.jsx";
 
-const FooterEditor = ({
+const ClosingNoteEditor = ({
   openSections,
   toggleSection,
   toggleEdit,
@@ -11,8 +11,8 @@ const FooterEditor = ({
   inputClass,
 }) => {
   return (
-    <Accordion
-      title="Thank You Message"
+    <SectionFold
+      title="Thank-you note"
       isOpen={openSections.thanks}
       onToggle={() => toggleSection("thanks")}
       showEditIcon={true}
@@ -38,8 +38,8 @@ const FooterEditor = ({
           />
         </div>
       </div>
-    </Accordion>
+    </SectionFold>
   );
 };
 
-export default FooterEditor
+export default ClosingNoteEditor

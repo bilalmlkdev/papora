@@ -1,8 +1,8 @@
 import React from "react";
-import { usePdfTheme } from "../invoice/pdf/usePdfTheme";
+import { useTheme } from "../invoice/pdf/useTheme.js";
 
-const ReceiptCalculationSection = ({ product }) => {
-  const t = usePdfTheme();
+const ReceiptTotalsBlock = ({ product }) => {
+  const t = useTheme();
   const subtotal = product.items.reduce((sum, item) => sum + item.qty * item.price, 0);
   const total = subtotal + (product.tax || 0);
   const received = product.receivedAmount ?? total;
@@ -27,4 +27,4 @@ const ReceiptCalculationSection = ({ product }) => {
   );
 };
 
-export default ReceiptCalculationSection;
+export default ReceiptTotalsBlock;

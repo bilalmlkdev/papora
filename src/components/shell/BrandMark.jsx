@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import logo from '../../assets/signature.png'
 
-const Logo = ({ className = "h-12 w-auto" }) => {
+const BrandMark = ({ className = "h-12 w-auto" }) => {
   const navigate = useNavigate();
 
   return (
@@ -16,4 +16,4 @@ const Logo = ({ className = "h-12 w-auto" }) => {
   );
 };
 
-export default Logo;
+export default BrandMark;

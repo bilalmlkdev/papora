@@ -1,8 +1,8 @@
 import React from "react";
-import { usePdfTheme } from "./usePdfTheme";
+import { useTheme } from "./useTheme.js";
 
-const NotesOrTermsSection = ({ title, text }) => {
-  const t = usePdfTheme();
+const TermsBlock = ({ title, text }) => {
+  const t = useTheme();
 
   if (!title && !text) return null;
 
@@ -14,4 +14,4 @@ const NotesOrTermsSection = ({ title, text }) => {
   );
 };
 
-export default NotesOrTermsSection;
+export default TermsBlock;

@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { PdfThemeContext } from "./pdfThemeContext";
-import { getPdfTheme } from "../data/pdfThemes";
+import { ThemeContext } from "./themeContext.js";
+import { getPdfTheme } from "../data/themePresets.js";
 
-export const usePdfTheme = () => {
-  const context = useContext(PdfThemeContext);
+export const useTheme = () => {
+  const context = useContext(ThemeContext);
   return context || getPdfTheme("light");
 };

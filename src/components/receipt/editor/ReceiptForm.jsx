@@ -1,22 +1,22 @@
 import React, { useState, useCallback } from "react";
-import { useReceipt } from "./useReceipt";
-import ImageEditor from "../../invoice/editor/ImageEditor";
-import PaymentEditor from "../../invoice/editor/PaymentEditor";
-import FooterEditor from "../../invoice/editor/FooterEditor";
-import AdditionalInfoEditor from "../../invoice/editor/AdditionalInfoEditor";
-import ReceiptBasicInfoEditor from "./ReceiptBasicInfoEditor";
-import CompanyEditor from "../../invoice/editor/CompanyEditor";
-import ClientEditor from "../../invoice/editor/ClientEditor";
-import ItemsEditor from "../../invoice/editor/ItemsEditor";
+import { useReceiptDoc } from "./useReceiptDoc.js";
+import BrandingEditor from "../../invoice/editor/BrandingEditor.jsx";
+import PayDetailsEditor from "../../invoice/editor/PayDetailsEditor.jsx";
+import ClosingNoteEditor from "../../invoice/editor/ClosingNoteEditor.jsx";
+import ExtrasEditor from "../../invoice/editor/ExtrasEditor.jsx";
+import ReceiptBasicsEditor from "./ReceiptBasicsEditor.jsx";
+import BilledByEditor from "../../invoice/editor/BilledByEditor.jsx";
+import BillToEditor from "../../invoice/editor/BillToEditor.jsx";
+import LineItemsEditor from "../../invoice/editor/LineItemsEditor.jsx";
 import { ArrowDownToLine, Loader, CheckCircle, XCircle } from "lucide-react";
-import { downloadReceiptPDF } from "../utils/index";
+import { downloadReceiptPDF } from "../utils/pdfExport.jsx";
 import {
   renderCurrencyOption,
   renderSelectedCurrency,
-} from "../../common/currencyDisplay";
-import { isValidDateValue, todayIso } from "../../common/dateUtils";
+} from "../../shared/currencyMeta.jsx";
+import { isValidDateValue, todayIso } from "../../shared/calendarHelpers.js";
 
-const ReceiptEditor = () => {
+const ReceiptForm = () => {
   const {
     receiptData,
     logoImage,
@@ -46,7 +46,7 @@ const ReceiptEditor = () => {
     uploadSignature,
     removeLogo,
     removeSignature,
-  } = useReceipt();
+  } = useReceiptDoc();
 
   const [openSections, setOpenSections] = useState({
     basic: true,
@@ -212,7 +212,7 @@ const ReceiptEditor = () => {
         </div>
       </div>
 
-      <ReceiptBasicInfoEditor
+      <ReceiptBasicsEditor
         openSections={openSections}
         toggleEdit={toggleEdit}
         toggleSection={toggleSection}
@@ -234,7 +234,7 @@ const ReceiptEditor = () => {
         removeCustomField={removeCustomField}
       />
 
-      <CompanyEditor
+      <BilledByEditor
         openSections={openSections}
         toggleEdit={toggleEdit}
         toggleSection={toggleSection}
@@ -248,7 +248,7 @@ const ReceiptEditor = () => {
         removeCustomField={removeCustomField}
       />
 
-      <ClientEditor
+      <BillToEditor
         openSections={openSections}
         toggleEdit={toggleEdit}
         toggleSection={toggleSection}
@@ -262,7 +262,7 @@ const ReceiptEditor = () => {
         removeCustomField={removeCustomField}
       />
 
-      <ImageEditor
+      <BrandingEditor
         openSections={openSections}
         toggleEdit={toggleEdit}
         toggleSection={toggleSection}
@@ -277,7 +277,7 @@ const ReceiptEditor = () => {
         handleFileUpload={handleFileUpload}
       />
 
-      <ItemsEditor
+      <LineItemsEditor
         openSections={openSections}
         toggleEdit={toggleEdit}
         toggleSection={toggleSection}
@@ -293,7 +293,7 @@ const ReceiptEditor = () => {
         removeItem={removeItem}
       />
 
-      <PaymentEditor
+      <PayDetailsEditor
         openSections={openSections}
         toggleEdit={toggleEdit}
         toggleSection={toggleSection}
@@ -306,7 +306,7 @@ const ReceiptEditor = () => {
         updateSignatureText={updateSignatureText}
       />
 
-      <AdditionalInfoEditor
+      <ExtrasEditor
         openSections={openSections}
         toggleEdit={toggleEdit}
         toggleSection={toggleSection}
@@ -317,7 +317,7 @@ const ReceiptEditor = () => {
         updateThankyouSection={updateThankyouSection}
       />
 
-      <FooterEditor
+      <ClosingNoteEditor
         openSections={openSections}
         toggleSection={toggleSection}
         toggleEdit={toggleEdit}
@@ -330,6 +330,6 @@ const ReceiptEditor = () => {
   );
 };
 
-export default ReceiptEditor;
+export default ReceiptForm;
 
 

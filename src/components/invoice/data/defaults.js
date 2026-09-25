@@ -39,7 +39,7 @@ export const defaultInvoiceData = {
     { label: "Account Name", value: "Bilal Malik" },
   ],
   termsSection: {
-    title: "Terms & Condition",
+    title: "Terms and conditions",
     text: 'Early payment discount: "Receive a 2% discount if paid within 10 days; otherwise, the total amount is due in 30 days".',
   },
   thankyouSection: {
@@ -164,7 +164,7 @@ export const currency = {
   ],
 };
 
-export { themes } from "./pdfThemes";
+export { themes } from "./themePresets.js";
 
 export const editorInputClass =
   "w-full text-xs px-3 py-2 border border-neutral-300 rounded-sm bg-white transition-colors focus:outline-none focus:border-neutral-900 focus:ring-1 focus:ring-neutral-900/10";

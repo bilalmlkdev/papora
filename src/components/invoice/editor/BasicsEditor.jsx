@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Plus, Trash2, Edit3, Save, X } from "lucide-react";
-import Accordion from "../../common/Accordion";
-import Dropdown from "../../common/Dropdown";
-import DateField from "../../common/DateField";
-import { isDueDateValid } from "../../common/dateUtils";
-import { primaryButtonClass, secondaryButtonClass } from "../data/data";
+import SectionFold from "../../shared/SectionFold.jsx";
+import OptionMenu from "../../shared/OptionMenu.jsx";
+import DateInput from "../../shared/DateInput.jsx";
+import { isDueDateValid } from "../../shared/calendarHelpers.js";
+import { primaryButtonClass, secondaryButtonClass } from "../data/defaults.js";
 
-const BasicInfoEditor = ({
+const BasicsEditor = ({
   openSections,
   toggleEdit,
   toggleSection,
@@ -62,8 +62,8 @@ const BasicInfoEditor = ({
       : "";
 
   return (
-    <Accordion
-      title="Invoice Details"
+    <SectionFold
+      title="Invoice basics"
       isOpen={openSections.basic}
       onToggle={() => toggleSection("basic")}
       showEditIcon={true}
@@ -96,7 +96,7 @@ const BasicInfoEditor = ({
             </div>
             <div>
               <label className={labelClass}>Issue Date</label>
-              <DateField
+              <DateInput
                 value={invoiceData.issueDate}
                 onChange={handleIssueDateChange}
                 placeholder="Select issue date"
@@ -105,7 +105,7 @@ const BasicInfoEditor = ({
             </div>
             <div>
               <label className={labelClass}>Due Date</label>
-              <DateField
+              <DateInput
                 value={invoiceData.dueDate}
                 onChange={(value) => updateBasicInfo("dueDate", value)}
                 min={invoiceData.issueDate || undefined}
@@ -115,7 +115,7 @@ const BasicInfoEditor = ({
             </div>
             <div>
               <label className={labelClass}>Currency</label>
-              <Dropdown
+              <OptionMenu
                 value={invoiceData.currency}
                 onChange={(country) => updateCurrency(country.code)}
                 options={currency.countries}
@@ -126,7 +126,7 @@ const BasicInfoEditor = ({
             </div>
             <div>
               <label className={labelClass}>Theme</label>
-              <Dropdown
+              <OptionMenu
                 value={invoiceData.theme}
                 onChange={(theme) => updateTheme(theme.value)}
                 options={themes}
@@ -290,8 +290,8 @@ const BasicInfoEditor = ({
           )}
         </div>
       )}
-    </Accordion>
+    </SectionFold>
   );
 };
 
-export default BasicInfoEditor;
+export default BasicsEditor;

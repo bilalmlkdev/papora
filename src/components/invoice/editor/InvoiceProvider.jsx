@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { currency, defaultInvoiceData, themes } from "../data/data";
-import { normalizeTheme } from "../data/pdfThemes";
-import { idbSet, idbGet, idbDelete } from "../utils/imageStore";
-import { InvoiceContext } from "./invoiceContext";
+import { currency, defaultInvoiceData, themes } from "../data/defaults.js";
+import { normalizeTheme } from "../data/themePresets.js";
+import { idbSet, idbGet, idbDelete } from "../utils/imageVault.js";
+import { InvoiceContext } from "./invoiceState.js";
 
 export const InvoiceProvider = ({ children }) => {
   const [invoiceData, setInvoiceData] = useState(() => {

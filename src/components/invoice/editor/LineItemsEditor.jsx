@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import Accordion from "../../common/Accordion";
-import NumberInput from "../../common/NumberInput";
+import SectionFold from "../../shared/SectionFold.jsx";
+import AmountField from "../../shared/AmountField.jsx";
 import { Plus, Trash2, Edit3, Save } from "lucide-react";
-import CustomItemModal from "../../common/CustomItemModal";
-import { editorInputClass, primaryButtonClass, secondaryButtonClass } from "../data/data";
+import ItemDialog from "../../shared/ItemDialog.jsx";
+import { editorInputClass, primaryButtonClass, secondaryButtonClass } from "../data/defaults.js";
 
 const numberInputClass = `${editorInputClass}`;
 
-const ItemsEditor = ({
+const LineItemsEditor = ({
   invoiceData,
   openSections,
   toggleEdit,
@@ -70,7 +70,7 @@ const ItemsEditor = ({
 
   return (
     <>
-      <Accordion
+      <SectionFold
         title={`Invoice Items (${invoiceData.items.length})`}
         isOpen={openSections.items}
         onToggle={() => toggleSection("items")}
@@ -132,7 +132,7 @@ const ItemsEditor = ({
               </span>
               {editingStates.tax ? (
                 <div className="flex gap-2">
-                  <NumberInput
+                  <AmountField
                     value={invoiceData.tax}
                     onChange={updateTax}
                     min={0}
@@ -166,7 +166,7 @@ const ItemsEditor = ({
                 <span className="font-medium text-xs text-neutral-800">Amount Received</span>
                 {editingStates.receivedAmount ? (
                   <div className="flex gap-2">
-                    <NumberInput
+                    <AmountField
                       value={invoiceData.receivedAmount ?? 0}
                       onChange={updateReceivedAmount}
                       min={0}
@@ -202,13 +202,13 @@ const ItemsEditor = ({
             <h1 className="text-sm font-mono">Add New Item</h1>
           </button>
         </div>
-      </Accordion>
+      </SectionFold>
 
       {/* Add Item Modal */}
-      <CustomItemModal
+      <ItemDialog
         isOpen={showAddModal}
         onClose={() => setShowAddModal(false)}
-        title="Add New Item"
+        title="Add an item"
       >
         <div className="space-y-4">
           <div>
@@ -240,7 +240,7 @@ const ItemsEditor = ({
               <label className="block text-xs font-medium text-neutral-700 mb-1">
                 Quantity
               </label>
-              <NumberInput
+              <AmountField
                 value={itemForm.qty}
                 onChange={(value) => handleInputChange("qty", value)}
                 min={1}
@@ -251,7 +251,7 @@ const ItemsEditor = ({
               <label className="block text-xs font-medium text-neutral-700 mb-1">
                 Price ({invoiceData.symbol})
               </label>
-              <NumberInput
+              <AmountField
                 value={itemForm.price}
                 onChange={(value) => handleInputChange("price", value)}
                 min={0}
@@ -275,13 +275,13 @@ const ItemsEditor = ({
             </button>
           </div>
         </div>
-      </CustomItemModal>
+      </ItemDialog>
 
       {/* Edit Item Modal */}
-      <CustomItemModal
+      <ItemDialog
         isOpen={showEditModal}
         onClose={() => setShowEditModal(false)}
-        title="Edit Item"
+        title="Edit item"
       >
         <div className="space-y-4">
           <div>
@@ -313,7 +313,7 @@ const ItemsEditor = ({
               <label className="block text-xs font-medium text-neutral-700 mb-1">
                 Quantity
               </label>
-              <NumberInput
+              <AmountField
                 value={itemForm.qty}
                 onChange={(value) => handleInputChange("qty", value)}
                 min={1}
@@ -324,7 +324,7 @@ const ItemsEditor = ({
               <label className="block text-xs font-medium text-neutral-700 mb-1">
                 Price ({invoiceData.symbol})
               </label>
-              <NumberInput
+              <AmountField
                 value={itemForm.price}
                 onChange={(value) => handleInputChange("price", value)}
                 min={0}
@@ -348,9 +348,9 @@ const ItemsEditor = ({
             </button>
           </div>
         </div>
-      </CustomItemModal>
+      </ItemDialog>
     </>
   );
 };
 
-export default ItemsEditor;
+export default LineItemsEditor;

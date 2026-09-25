@@ -5,7 +5,7 @@ const formatDisplay = (value) => {
   return String(value);
 };
 
-const NumberInput = ({
+const AmountField = ({
   value = 0,
   onChange,
   min = 0,
@@ -78,4 +78,4 @@ const NumberInput = ({
   );
 };
 
-export default NumberInput;
+export default AmountField;

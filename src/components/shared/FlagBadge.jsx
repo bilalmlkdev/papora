@@ -1,6 +1,6 @@
-import { getFlagImageUrl } from "./currencyFlags";
+import { getFlagImageUrl } from "./flagRegistry.js";
 
-const CurrencyFlag = ({
+const FlagBadge = ({
   code,
   className = "h-3.5 w-5 shrink-0 rounded-[2px] object-cover border border-neutral-200/80",
 }) => (
@@ -13,4 +13,4 @@ const CurrencyFlag = ({
   />
 );
 
-export default CurrencyFlag;
+export default FlagBadge;

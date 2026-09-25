@@ -1,10 +1,10 @@
 import React, { Suspense, lazy, useState } from "react";
 import { useNavigate, Routes, Route } from "react-router-dom";
 import { Loader } from "lucide-react";
-import Hero from "./components/home/Hero";
-import "./App.css";
+import LandingPage from "./components/landing/LandingPage.jsx";
+import "./Root.css";
 
-const DocumentsPage = lazy(() => import("./pages/DocumentsPage"));
+const WorkspacePage = lazy(() => import("./pages/WorkspacePage.jsx"));
 
 function App() {
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Hero onNavigate={handleNavigate} />} />
+      <Route path="/" element={<LandingPage onNavigate={handleNavigate} />} />
 
       <Route
         path="/documents"
@@ -28,7 +28,7 @@ function App() {
               </div>
             }
           >
-            <DocumentsPage activeView={activeView} onSelect={setActiveView} />
+            <WorkspacePage activeView={activeView} onSelect={setActiveView} />
           </Suspense>
         }
       />

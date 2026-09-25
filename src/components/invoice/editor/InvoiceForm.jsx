@@ -1,27 +1,27 @@
 import React, { useState, useCallback } from "react";
-import { useInvoice } from "./useInvoice";
-import ImageEditor from "./ImageEditor";
-import PaymentEditor from "./PaymentEditor";
-import FooterEditor from "./FooterEditor";
-import AdditionalInfoEditor from "./AdditionalInfoEditor";
-import BasicInfoEditor from "./BasicInfoEditor";
-import CompanyEditor from "./CompanyEditor";
-import ClientEditor from "./ClientEditor";
-import ItemsEditor from "./ItemsEditor";
+import { useInvoiceDoc } from "./useInvoiceDoc.js";
+import BrandingEditor from "./BrandingEditor.jsx";
+import PayDetailsEditor from "./PayDetailsEditor.jsx";
+import ClosingNoteEditor from "./ClosingNoteEditor.jsx";
+import ExtrasEditor from "./ExtrasEditor.jsx";
+import BasicsEditor from "./BasicsEditor.jsx";
+import BilledByEditor from "./BilledByEditor.jsx";
+import BillToEditor from "./BillToEditor.jsx";
+import LineItemsEditor from "./LineItemsEditor.jsx";
 import {
   ArrowDownToLine,
   Loader,
   CheckCircle,
   XCircle,
 } from "lucide-react";
-import { downloadInvoicePDF } from "../utils/index";
+import { downloadInvoicePDF } from "../utils/pdfExport.jsx";
 import {
   renderCurrencyOption,
   renderSelectedCurrency,
-} from "../../common/currencyDisplay";
-import { isDueDateValid, isValidDateValue } from "../../common/dateUtils";
+} from "../../shared/currencyMeta.jsx";
+import { isDueDateValid, isValidDateValue } from "../../shared/calendarHelpers.js";
 
-const InvoiceEditor = () => {
+const InvoiceForm = () => {
   const {
     invoiceData,
     logoImage,
@@ -50,7 +50,7 @@ const InvoiceEditor = () => {
     uploadSignature,
     removeLogo,
     removeSignature,
-  } = useInvoice();
+  } = useInvoiceDoc();
 
   const [openSections, setOpenSections] = useState({
     basic: true,
@@ -248,7 +248,7 @@ const InvoiceEditor = () => {
       </div>
 
       {/* Invoice Information - Always Open */}
-      <BasicInfoEditor
+      <BasicsEditor
         openSections={openSections}
         toggleEdit={toggleEdit}
         toggleSection={toggleSection}
@@ -271,7 +271,7 @@ const InvoiceEditor = () => {
       />
 
       {/* Company Details */}
-      <CompanyEditor
+      <BilledByEditor
         openSections={openSections}
         toggleEdit={toggleEdit}
         toggleSection={toggleSection}
@@ -286,7 +286,7 @@ const InvoiceEditor = () => {
       />
 
       {/* Client Details */}
-      <ClientEditor
+      <BillToEditor
         openSections={openSections}
         toggleEdit={toggleEdit}
         toggleSection={toggleSection}
@@ -301,7 +301,7 @@ const InvoiceEditor = () => {
       />
 
       {/* Images Section */}
-      <ImageEditor
+      <BrandingEditor
         openSections={openSections}
         toggleSection={toggleSection}
         logoImage={logoImage}
@@ -316,7 +316,7 @@ const InvoiceEditor = () => {
       />
 
       {/* Invoice Items */}
-      <ItemsEditor
+      <LineItemsEditor
         invoiceData={invoiceData}
         openSections={openSections}
         toggleEdit={toggleEdit}
@@ -330,7 +330,7 @@ const InvoiceEditor = () => {
       />
 
       {/* Payment Information */}
-      <PaymentEditor
+      <PayDetailsEditor
         openSections={openSections}
         toggleSection={toggleSection}
         toggleEdit={toggleEdit}
@@ -344,7 +344,7 @@ const InvoiceEditor = () => {
       />
 
       {/* Terms Section */}
-      <AdditionalInfoEditor
+      <ExtrasEditor
         openSections={openSections}
         toggleSection={toggleSection}
         toggleEdit={toggleEdit}
@@ -355,7 +355,7 @@ const InvoiceEditor = () => {
       />
 
       {/* Thank You Section */}
-      <FooterEditor
+      <ClosingNoteEditor
         openSections={openSections}
         toggleSection={toggleSection}
         toggleEdit={toggleEdit}
@@ -368,4 +368,4 @@ const InvoiceEditor = () => {
   );
 };
 
-export default InvoiceEditor;
+export default InvoiceForm;

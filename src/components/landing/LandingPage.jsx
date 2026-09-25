@@ -1,11 +1,11 @@
 import React from "react";
 import { ArrowUpRight, Eye, FileDown, Gift, MapPin, Shield } from "lucide-react";
-import InvoiceSkeleton from "./InvoiceSkeleton";
-import PhoneFrame from "./PhoneFrame";
-import Logo from "../ui/Logo";
+import PhoneWalkthrough from "./PhoneWalkthrough.jsx";
+import DeviceFrame from "./DeviceFrame.jsx";
+import BrandMark from "../shell/BrandMark.jsx";
 import editorInv from "../../assets/editor-inv.png";
 import pdfInv from "../../assets/pdf-inv.png";
-import wallpaper3 from "../../assets/dith-homee.png";
+import wallpaper3 from "../../assets/home.webp";
 
 const btnBlack =
   "inline-flex items-center gap-2 rounded-lg bg-neutral-900 px-4 py-2.5 text-sm text-white transition-colors hover:bg-neutral-800 cursor-pointer";
@@ -35,10 +35,10 @@ const footLinkClass =
   "group inline-flex items-center gap-1.5 text-sm text-neutral-600 transition-colors hover:text-neutral-900";
 
 const HOW_IT_WORKS = [
-  "Start by filling in your business name, your client's name, and what you charged. The form stays simple - no clutter, no confusion.",
-  "As you type, your invoice builds on screen in front of you. You always see exactly how it will look before you finish.",
-  "When everything looks right, review the layout and totals one last time. Change anything you want before you download.",
-  "Save your invoice as a PDF and send it to your client. From blank page to finished document in minutes.",
+  "Open the editor and put down the basics - your business, who you are billing, and what you charge. The form asks for only what belongs on the document.",
+  "Every line you type lands on the page beside you. No preview button, no guesswork - what you see is exactly what downloads.",
+  "Totals, dates, notes, payment details - adjust any of it until it reads right, and the document keeps up as you go.",
+  "Hit download and a print-ready PDF is yours. Blank page to finished invoice, all inside one tab.",
 ];
 
 const WALLPAPER_MASK = {
@@ -55,26 +55,26 @@ const WALLPAPER_MASK = {
 const SHOWCASE = [
   {
     label: "Editor",
-    title: "See it as you type",
-    desc: "Fill in details and watch your invoice update live.",
+    title: "Built as you type",
+    desc: "Each field you touch updates the document in real time.",
     image: editorInv,
     alt: "Papora invoice editor",
     extraPad: true,
   },
   {
     label: "PDF",
-    title: "Download in one click",
-    desc: "Export a clean, print-ready PDF when you are done.",
+    title: "One click to a finished file",
+    desc: "Take away a crisp, print-ready PDF the moment it looks right.",
     image: pdfInv,
     alt: "Papora invoice PDF preview",
   },
 ];
 
 const FEATURES = [
-  { icon: Eye, label: "Live preview" },
-  { icon: FileDown, label: "PDF export" },
-  { icon: Shield, label: "Private" },
-  { icon: Gift, label: "Free to use" },
+  { icon: Eye, label: "Updates live" },
+  { icon: FileDown, label: "Clean PDF export" },
+  { icon: Shield, label: "Private by design" },
+  { icon: Gift, label: "Free forever" },
 ];
 
 const LandingPage = ({ onNavigate }) => {
@@ -103,31 +103,31 @@ const LandingPage = ({ onNavigate }) => {
 
         <header className="relative z-10">
           <div className="mx-auto flex max-w-5xl items-center justify-center px-6 py-5 md:px-10 md:py-7">
-            <Logo/>
+            <BrandMark/>
           </div>
         </header>
 
         <div className="relative z-10 flex min-h-[52dvh] flex-col items-center justify-center px-6 pt-8 text-center md:min-h-[48dvh] md:pt-12">
-          <p className="text-xs text-neutral-600 bg-white/30 bg-transparent py-1 px-3 rounded-full">Free · No account needed</p>
-          <h1 className="font-sans mt-4 max-w-2xl text-4xl leading-[1.1] text-black">
-            Create invoices <br /> that look professional
+          <p className="text-xs text-neutral-600 bg-white/30 bg-transparent py-1 px-3 rounded-full">Free - no sign-up, no account</p>
+          <h1 className="mt-4 max-w-2xl text-6xl leading-[1] text-black">
+            Invoices that look sharp, <br /> made in minutes
           </h1>
           <p className="mx-auto mt-5 max-w-lg text-base leading-normal text-neutral-800 md:max-w-lg">
-            Fill in your details, see how your invoice looks, and download it when you are
-            done - ready to send to your clients.
+            Type your details, watch the page build itself, and download a clean
+            PDF the moment it looks right.
           </p>
           <div className="mt-8">
             <button type="button" onClick={() => onNavigate("app")} className={btnBlack}>
-              Create invoice
+              Start an invoice
               <ArrowUpRight className="h-4 w-4" />
             </button>
           </div>
         </div>
 
         <div className="relative z-10 flex justify-center pb-14 pt-4 md:pb-20 md:pt-6">
-          <PhoneFrame>
-            <InvoiceSkeleton />
-          </PhoneFrame>
+          <DeviceFrame>
+            <PhoneWalkthrough />
+          </DeviceFrame>
         </div>
       </section>
 
@@ -151,11 +151,12 @@ const LandingPage = ({ onNavigate }) => {
         <section className="border-t border-neutral-100 bg-white">
           <div className="mx-auto max-w-2xl px-6 py-20 md:py-28">
             <h2 className="text-2xl text-neutral-900 md:text-3xl">
-              Everything you need. Nothing you don&apos;t.
+              Everything an invoice needs. Nothing it doesn&apos;t.
             </h2>
-            <p className="mt-3 text-xs text-neutral-500">Free to use · No account needed</p>
+            <p className="mt-3 text-xs text-neutral-500">Free - no account, no subscription</p>
             <p className="mt-5 max-w-lg text-base leading-relaxed text-neutral-600">
-              Fill in your invoice, preview it live, and download a PDF - all in one flow.
+              Write the invoice, watch it update live, and walk away with a
+              polished PDF - one flow, no steps to skip.
             </p>
 
             <div className="mt-14 grid gap-12 md:mt-16 md:grid-cols-2 md:gap-8">
@@ -200,17 +201,17 @@ const LandingPage = ({ onNavigate }) => {
 
         <section className="mx-auto max-w-2xl px-6 py-20 text-center md:py-28">
           <h2 className="text-2xl text-neutral-900 md:text-3xl">
-            Ready to create your first invoice?
+            Your first invoice is minutes away
           </h2>
           <p className="mx-auto mt-5 max-w-sm text-sm leading-relaxed text-neutral-500">
-            It only takes a few minutes. No account required.
+            No sign-up wall, no setup - just open the editor and start.
           </p>
           <button
             type="button"
             onClick={() => onNavigate("app")}
             className={`${btnBlack} mt-8`}
           >
-            Try it now
+            Open the editor
             <ArrowUpRight className="h-4 w-4" />
           </button>
         </section>
@@ -219,17 +220,17 @@ const LandingPage = ({ onNavigate }) => {
           <div className="mx-auto max-w-2xl px-6 pb-20 md:pb-28">
             <div className="space-y-10">
               <p className="text-2xl leading-snug text-neutral-800">
-                Papora is fully open source - free for personal and professional use, with
-                no sign-up and no subscription.
+                Papora is open source and free for personal use and client work
+                alike - no sign-up, no subscription, no fine print.
               </p>
               <p className="text-2xl leading-snug text-neutral-800">
-                It exists because invoicing should be simple: fill in your details, preview
-                your document, and download a PDF. Anyone can use it, fork it, or run their
-                own copy.
+                It exists because invoicing should not need a tutorial: type your
+                details, glance at the page, download the PDF. Anyone can run it,
+                fork it, or host their own copy.
               </p>
               <p className="text-2xl leading-snug text-neutral-800">
-                If Papora helps you, leave a star on GitHub. If you want to support the
-                work behind it, buy me a coffee.
+                If it saves you time, a star on GitHub takes a second. If you want
+                to back what comes next, the coffee link is right below.
               </p>
               <p className="text-2xl leading-snug text-neutral-800">
                 More free open source tools from the same builder -{" "}
@@ -241,7 +242,7 @@ const LandingPage = ({ onNavigate }) => {
                 >
                   Readmade
                 </a>
-                , a reading list app, and{" "}
+                , a reading list that keeps up with you, and{" "}
                 <a
                   href={FOOTER_TOOLS[1].url}
                   target="_blank"
@@ -250,7 +251,7 @@ const LandingPage = ({ onNavigate }) => {
                 >
                   Pickfrompic
                 </a>
-                , a color palette maker for images.
+                , which pulls color palettes out of any image.
               </p>
             </div>
           </div>
@@ -258,7 +259,7 @@ const LandingPage = ({ onNavigate }) => {
 
         <footer className="border-t border-neutral-100 bg-white">
           <div className="mx-auto max-w-2xl px-6 py-12 md:py-16">
-            <Logo className="h-12 w-auto" />
+            <BrandMark className="h-12 w-auto" />
 
             <div className="mt-8">
               <p className="text-xs text-neutral-400">Made by</p>
@@ -324,7 +325,7 @@ const LandingPage = ({ onNavigate }) => {
 
             <div className="mt-12 border-t border-neutral-100 pt-8">
               <p className="text-xs leading-relaxed text-neutral-400">
-                © {new Date().getFullYear()} Papora · Open source & free to use
+                © {new Date().getFullYear()} Papora - open source and free to use
               </p>
             </div>
           </div>

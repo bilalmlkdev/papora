@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import { ReceiptContext } from "./receiptContext";
+import { ReceiptContext } from "./receiptState.js";
 
-export const useReceipt = () => {
+export const useReceiptDoc = () => {
   const context = useContext(ReceiptContext);
   if (!context) {
-    throw new Error("useReceipt must be used within a ReceiptProvider");
+    throw new Error("useReceiptDoc must be used within a ReceiptProvider");
   }
   return context;
 };

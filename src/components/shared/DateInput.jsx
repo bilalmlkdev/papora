@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 import { Calendar } from "lucide-react";
-import { formatDateLabel } from "./dateUtils";
+import { formatDateLabel } from "./calendarHelpers.js";
 
-const DateField = ({
+const DateInput = ({
   value,
   onChange,
   min,
@@ -73,4 +73,4 @@ const DateField = ({
   );
 };
 
-export default DateField;
+export default DateInput;

@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import { usePdfTheme } from "./usePdfTheme";
+import { useTheme } from "./useTheme.js";
 
-const InvoiceHeader = ({ invoice, logo, customFields = [] }) => {
-  const t = usePdfTheme();
+const HeaderBlock = ({ invoice, logo, customFields = [] }) => {
+  const t = useTheme();
   const leftRef = useRef(null);
   const [leftHeight, setLeftHeight] = useState(0);
 
@@ -49,4 +49,4 @@ const InvoiceHeader = ({ invoice, logo, customFields = [] }) => {
   );
 };
 
-export default InvoiceHeader;
+export default HeaderBlock;

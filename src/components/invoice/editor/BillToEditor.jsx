@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Plus, Edit3, Save, Trash2 } from "lucide-react";
-import Accordion from "../../common/Accordion";
-import CustomFieldModal from "../../common/CustomFieldModal";
+import SectionFold from "../../shared/SectionFold.jsx";
+import FieldDialog from "../../shared/FieldDialog.jsx";
 
-const ClientEditor = ({
+const BillToEditor = ({
   openSections,
   toggleEdit,
   toggleSection,
@@ -32,8 +32,8 @@ const ClientEditor = ({
   };
 
   return (
-    <Accordion
-      title="Client Details"
+    <SectionFold
+      title="Your client"
       isOpen={openSections.client}
       onToggle={() => toggleSection("client")}
       showEditIcon={true}
@@ -149,7 +149,7 @@ const ClientEditor = ({
         </button>
 
         {/* Add Field Modal */}
-        <CustomFieldModal
+        <FieldDialog
           isOpen={showAddFieldModal}
           onClose={() => setShowAddFieldModal(false)}
           onAdd={handleAddCustomField}
@@ -158,8 +158,8 @@ const ClientEditor = ({
           inputClass={inputClass}
         />
       </div>
-    </Accordion>
+    </SectionFold>
   );
 };
 
-export default ClientEditor;
+export default BillToEditor;

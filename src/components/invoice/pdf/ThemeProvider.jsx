@@ -1,10 +1,10 @@
 import React from "react";
-import { getPdfTheme } from "../data/pdfThemes";
-import { PdfThemeContext } from "./pdfThemeContext";
+import { getPdfTheme } from "../data/themePresets.js";
+import { ThemeContext } from "./themeContext.js";
 
-export const PdfThemeProvider = ({ theme = "light", children }) => {
+export const ThemeProvider = ({ theme = "light", children }) => {
   const themeStyles = getPdfTheme(theme);
   return (
-    <PdfThemeContext.Provider value={themeStyles}>{children}</PdfThemeContext.Provider>
+    <ThemeContext.Provider value={themeStyles}>{children}</ThemeContext.Provider>
   );
 };

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { currency, themes } from "../../invoice/data/data";
-import { normalizeTheme } from "../../invoice/data/pdfThemes";
-import { defaultReceiptData } from "../data";
-import { idbSet, idbGet, idbDelete } from "../../invoice/utils/imageStore";
-import { ReceiptContext } from "./receiptContext";
+import { currency, themes } from "../../invoice/data/defaults.js";
+import { normalizeTheme } from "../../invoice/data/themePresets.js";
+import { defaultReceiptData } from "../defaults.js";
+import { idbSet, idbGet, idbDelete } from "../../invoice/utils/imageVault.js";
+import { ReceiptContext } from "./receiptState.js";
 
 export const ReceiptProvider = ({ children }) => {
   const [receiptData, setReceiptData] = useState(() => {

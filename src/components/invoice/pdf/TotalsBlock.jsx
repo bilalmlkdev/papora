@@ -1,8 +1,8 @@
 import React from "react";
-import { usePdfTheme } from "./usePdfTheme";
+import { useTheme } from "./useTheme.js";
 
-const CalculationSection = ({ product }) => {
-  const t = usePdfTheme();
+const TotalsBlock = ({ product }) => {
+  const t = useTheme();
   const subtotal = product.items.reduce(
     (sum, item) => sum + item.qty * item.price,
     0
@@ -29,4 +29,4 @@ const CalculationSection = ({ product }) => {
   );
 };
 
-export default CalculationSection;
+export default TotalsBlock;

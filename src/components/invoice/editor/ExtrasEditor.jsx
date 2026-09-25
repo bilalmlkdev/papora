@@ -1,7 +1,7 @@
 import React from 'react'
-import Accordion from "../../common/Accordion";
+import SectionFold from "../../shared/SectionFold.jsx";
 
-const AdditionalInfoEditor = ({
+const ExtrasEditor = ({
   openSections,
   toggleSection,
   toggleEdit,
@@ -11,8 +11,8 @@ const AdditionalInfoEditor = ({
   updateTermsSection,
 }) => {
   return (
-    <Accordion
-      title="Additional Information"
+    <SectionFold
+      title="Extra details"
       isOpen={openSections.terms}
       onToggle={() => toggleSection("terms")}
       showEditIcon={true}
@@ -38,8 +38,8 @@ const AdditionalInfoEditor = ({
           />
         </div>
       </div>
-    </Accordion>
+    </SectionFold>
   );
 };
 
-export default AdditionalInfoEditor
+export default ExtrasEditor

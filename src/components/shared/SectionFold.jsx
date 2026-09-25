@@ -1,7 +1,7 @@
 import React from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
-const Accordion = ({ title, isOpen, onToggle, children }) => (
+const SectionFold = ({ title, isOpen, onToggle, children }) => (
   <div className="bg-white rounded border-b border-dashed border-neutral-100">
     <div
       className="flex justify-between items-center font-medium p-4 cursor-pointer hover:bg-neutral-50/50"
@@ -18,4 +18,4 @@ const Accordion = ({ title, isOpen, onToggle, children }) => (
   </div>
 );
 
-export default Accordion;
+export default SectionFold;

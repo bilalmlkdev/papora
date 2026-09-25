@@ -1,21 +1,21 @@
 import React, { useState } from "react";
-import InvoiceHeader from "../../components/invoice/pdf/InvoiceHeader";
-import PaymentSection from "../../components/invoice/pdf/PaymentSection";
-import ThankyouSection from "../../components/invoice/pdf/ThankyouSection";
-import NotesOrTermsSection from "../../components/invoice/pdf/NotesOrTermsSection";
-import ItemsSection from "../../components/invoice/pdf/ItemsSection";
-import CalculationSection from "../../components/invoice/pdf/CalculationSection";
-import BillingSection from "../../components/invoice/pdf/BillingSection";
-import InvoiceEditor from "../../components/invoice/editor/InvoiceEditor";
-import { useInvoice } from "./editor/useInvoice";
-import Sidebar from "../ui/Sidebar";
-import Navbar from "../ui/Navbar";
+import HeaderBlock from "./pdf/HeaderBlock.jsx";
+import PayBlock from "./pdf/PayBlock.jsx";
+import ThanksBlock from "./pdf/ThanksBlock.jsx";
+import TermsBlock from "./pdf/TermsBlock.jsx";
+import ItemsBlock from "./pdf/ItemsBlock.jsx";
+import TotalsBlock from "./pdf/TotalsBlock.jsx";
+import BilledToBlock from "./pdf/BilledToBlock.jsx";
+import InvoiceForm from "./editor/InvoiceForm.jsx";
+import { useInvoiceDoc } from "./editor/useInvoiceDoc.js";
+import SideNav from "../shell/SideNav.jsx";
+import TopBar from "../shell/TopBar.jsx";
 import { EditIcon } from "lucide-react";
-import { PdfThemeProvider } from "./pdf/PdfThemeProvider";
-import { normalizeTheme, getPdfTheme } from "./data/pdfThemes";
+import { ThemeProvider } from "./pdf/ThemeProvider.jsx";
+import { normalizeTheme, getPdfTheme } from "./data/themePresets.js";
 
-const PdfInvoice = ({ onSelect }) => {
-  const { invoiceData, logoImage, signatureImage } = useInvoice();
+const InvoiceWorkspace = ({ onSelect }) => {
+  const { invoiceData, logoImage, signatureImage } = useInvoiceDoc();
 
   // Create the data structures that your existing components expect
   const invoice = {
@@ -47,7 +47,7 @@ const PdfInvoice = ({ onSelect }) => {
     symbol: invoiceData.symbol,
   };
 
-  // Transform payment data to match PaymentSection expectations
+  // Transform payment data to match PayBlock expectations
   const payment = invoiceData.payment.map((item) => ({
     [item.label]: item.value,
   }));
@@ -68,14 +68,14 @@ const handleMenuClose = () => {
 };
   return (
     <div className="flex flex-col w-full xl:h-screen bg-white xl:overflow-hidden pt-16">
-      <Navbar
+      <TopBar
         onMenuToggle={handleMenuToggle}
         onMenuClose={handleMenuClose}
         isMenuOpen={isMobileMenuOpen}
       />
       <div className="flex flex-col md:flex-row w-full flex-1 overflow-hidden">
         <div className="hidden xl:block xl:w-[17%] flex-shrink-0">
-          <Sidebar active="invoice" onSelect={onSelect} />
+          <SideNav active="invoice" onSelect={onSelect} />
         </div>
 
         {/* Mobile Menu Overlay */}
@@ -88,7 +88,7 @@ const handleMenuClose = () => {
               style={{ top: "64px" }} // Start below navbar (navbar height is h-16 = 64px)
             />
 
-            {/* Mobile Sidebar */}
+            {/* Mobile SideNav */}
             <div
               className="fixed left-0 w-full bg-white z-50 md:hidden shadow-lg transform transition-transform duration-300 ease-in-out"
               style={{
@@ -98,7 +98,7 @@ const handleMenuClose = () => {
               }}
             >
               <div className="h-full overflow-y-auto">
-                <Sidebar active="invoice" onSelect={onSelect} />
+                <SideNav active="invoice" onSelect={onSelect} />
               </div>
             </div>
           </>
@@ -111,13 +111,13 @@ const handleMenuClose = () => {
           <div className="flex flex-col xl:flex-row w-full flex-1 xl:overflow-hidden">
             <div className="w-full xl:w-[45%] xl:overflow-y-auto">
               {/* Left Side - Invoice Editor */}
-              <InvoiceEditor />
+              <InvoiceForm />
             </div>
 
             {/* PDF Preview */}
             <div className="w-full xl:w-[55%] py-6 bg-neutral-50/50 xl:overflow-y-auto text-xs">
               <div className="bg-white shadow-lg max-w-[595px] mx-auto">
-                <PdfThemeProvider theme={normalizeTheme(invoiceData.theme)}>
+                <ThemeProvider theme={normalizeTheme(invoiceData.theme)}>
                   <div
                     className={`w-[595px] min-h-[842px] font-sans text-sm p-6 ${getPdfTheme(normalizeTheme(invoiceData.theme)).page}`}
                   >
@@ -128,39 +128,39 @@ const handleMenuClose = () => {
                     </div>
 
                   {/* Enhanced Invoice Header with Custom Fields */}
-                  <InvoiceHeader
+                  <HeaderBlock
                     logo={logoImage || defaultLogo}
                     invoice={invoice}
                     customFields={invoiceData.customFields.basic}
                   />
 
-                  <BillingSection
+                  <BilledToBlock
                     sender={details.sender}
                     receiver={details.receiver}
                     customFields={invoiceData.customFields}
                   />
 
-                  <ItemsSection product={product} />
+                  <ItemsBlock product={product} />
 
-                  <CalculationSection product={product} />
+                  <TotalsBlock product={product} />
 
-                  <PaymentSection
+                  <PayBlock
                     payment={payment}
                     signature={signatureImage || defaultSignature}
                     text={invoiceData.signatureText}
                   />
 
-                  <NotesOrTermsSection
+                  <TermsBlock
                     title={invoiceData.termsSection.title}
                     text={invoiceData.termsSection.text}
                   />
 
-                  <ThankyouSection
+                  <ThanksBlock
                     title={invoiceData.thankyouSection.title}
                     text={invoiceData.thankyouSection.text}
                   />
                   </div>
-                </PdfThemeProvider>
+                </ThemeProvider>
               </div>
             </div>
           </div>
@@ -170,4 +170,4 @@ const handleMenuClose = () => {
   );
 };
 
-export default PdfInvoice;
+export default InvoiceWorkspace;

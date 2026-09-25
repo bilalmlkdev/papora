@@ -1,8 +1,8 @@
 import React from "react";
-import { usePdfTheme } from "./usePdfTheme";
+import { useTheme } from "./useTheme.js";
 
-const ItemsSection = ({ product }) => {
-  const t = usePdfTheme();
+const ItemsBlock = ({ product }) => {
+  const t = useTheme();
 
   return (
     <div>
@@ -35,4 +35,4 @@ const ItemsSection = ({ product }) => {
   );
 };
 
-export default ItemsSection;
+export default ItemsBlock;

@@ -1,5 +1,5 @@
 import { pdf } from "@react-pdf/renderer";
-import ReceiptPDFTemplate from "./ReceiptPDFTemplate";
+import ReceiptSheet from "./ReceiptSheet.jsx";
 
 export const createReceiptPdfBlob = async ({ invoiceData, logoImage, signatureImage, template }) => {
   const Template = getPdfTemplate(template);
@@ -30,7 +30,7 @@ const getPdfTemplate = (template) => {
     case "receipt":
     case "default":
     default:
-      return ReceiptPDFTemplate;
+      return ReceiptSheet;
   }
 };
 
