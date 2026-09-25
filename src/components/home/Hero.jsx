@@ -35,7 +35,7 @@ const footLinkClass =
   "group inline-flex items-center gap-1.5 text-sm text-neutral-600 transition-colors hover:text-neutral-900";
 
 const HOW_IT_WORKS = [
-  "Start by filling in your business name, your client's name, and what you charged. The form stays simple — no clutter, no confusion.",
+  "Start by filling in your business name, your client's name, and what you charged. The form stays simple - no clutter, no confusion.",
   "As you type, your invoice builds on screen in front of you. You always see exactly how it will look before you finish.",
   "When everything looks right, review the layout and totals one last time. Change anything you want before you download.",
   "Save your invoice as a PDF and send it to your client. From blank page to finished document in minutes.",
@@ -109,12 +109,12 @@ const LandingPage = ({ onNavigate }) => {
 
         <div className="relative z-10 flex min-h-[52dvh] flex-col items-center justify-center px-6 pt-8 text-center md:min-h-[48dvh] md:pt-12">
           <p className="text-xs text-neutral-600 bg-white/30 bg-transparent py-1 px-3 rounded-full">Free · No account needed</p>
-          <h1 className="font-sans mt-4 max-w-2xl text-4xl leading-[1.12] text-black">
+          <h1 className="font-sans mt-4 max-w-2xl text-4xl leading-[1.1] text-black">
             Create invoices <br /> that look professional
           </h1>
-          <p className="mx-auto mt-5 max-w-lg text-base leading-relaxed text-neutral-800 md:max-w-lg">
+          <p className="mx-auto mt-5 max-w-lg text-base leading-normal text-neutral-800 md:max-w-lg">
             Fill in your details, see how your invoice looks, and download it when you are
-            done — ready to send to your clients.
+            done - ready to send to your clients.
           </p>
           <div className="mt-8">
             <button type="button" onClick={() => onNavigate("app")} className={btnBlack}>
@@ -155,7 +155,7 @@ const LandingPage = ({ onNavigate }) => {
             </h2>
             <p className="mt-3 text-xs text-neutral-500">Free to use · No account needed</p>
             <p className="mt-5 max-w-lg text-base leading-relaxed text-neutral-600">
-              Fill in your invoice, preview it live, and download a PDF — all in one flow.
+              Fill in your invoice, preview it live, and download a PDF - all in one flow.
             </p>
 
             <div className="mt-14 grid gap-12 md:mt-16 md:grid-cols-2 md:gap-8">
@@ -219,7 +219,7 @@ const LandingPage = ({ onNavigate }) => {
           <div className="mx-auto max-w-2xl px-6 pb-20 md:pb-28">
             <div className="space-y-10">
               <p className="text-2xl leading-snug text-neutral-800">
-                Papora is fully open source — free for personal and professional use, with
+                Papora is fully open source - free for personal and professional use, with
                 no sign-up and no subscription.
               </p>
               <p className="text-2xl leading-snug text-neutral-800">
@@ -232,7 +232,7 @@ const LandingPage = ({ onNavigate }) => {
                 work behind it, buy me a coffee.
               </p>
               <p className="text-2xl leading-snug text-neutral-800">
-                More free open source tools from the same builder —{" "}
+                More free open source tools from the same builder -{" "}
                 <a
                   href={FOOTER_TOOLS[0].url}
                   target="_blank"
