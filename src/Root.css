@@ -5,24 +5,6 @@ body {
   font-optical-sizing: auto;
 }
 
-/* Headings render in Gurajada everywhere, except inside the invoice and
-   receipt document previews (they carry .font-sans so the on-screen document
-   keeps Inter, matching the Helvetica used by the PDF export). */
-@layer base {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: "Gurajada", serif;
-  }
-
-  .font-sans :is(h1, h2, h3, h4, h5, h6) {
-    font-family: "Inter", sans-serif;
-  }
-}
-
 ::-webkit-scrollbar {
   width: 5px;
 }
