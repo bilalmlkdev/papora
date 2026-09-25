@@ -7,8 +7,8 @@ const OPEN_SOURCE_PROJECTS = [
 ];
 
 const LINKS = {
-  sponsor: "https://buymeacoffee.com/bilalmlkdev",
-  github: "https://github.com/bilalmlkdev",
+  sponsor: "https://ko-fi.com/bilalmlkdev",
+  github: "https://github.com/bilalmlkdev/papora.git",
   twitter: "https://x.com/bilalmlkdev",
 };
 

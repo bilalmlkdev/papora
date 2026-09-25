@@ -14,7 +14,7 @@ const LINKS = {
   github: "https://github.com/bilalmlkdev",
   portfolio: "https://bilalmlkdev.vercel.app",
   twitter: "https://x.com/bilalmlkdev",
-  coffee: "https://buymeacoffee.com/bilalmlkdev",
+  coffee: "https://ko-fi.com/bilalmlkdev",
   bugReport:
     "mailto:bilalmlkdev@gmail.com?subject=Papora%20Bug%20Report&body=Please%20describe%20the%20bug%20and%20how%20to%20reproduce%20it.",
 };

@@ -2,6 +2,7 @@
   "name": "papora",
   "private": true,
   "version": "0.1.0",
+  "license": "MIT",
   "type": "module",
   "description": "Papora - free invoice and receipt maker. Preview live, download PDF, no account needed.",
   "scripts": {
