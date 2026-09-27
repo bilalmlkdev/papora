@@ -5,7 +5,6 @@ import DeviceFrame from "./DeviceFrame.jsx";
 import BrandMark from "../shell/BrandMark.jsx";
 import editorInv from "../../assets/editor-inv.png";
 import pdfInv from "../../assets/pdf-inv.png";
-import wallpaper3 from "../../assets/home.webp";
 
 const btnBlack =
   "inline-flex items-center gap-2 rounded-lg bg-neutral-900 px-4 py-2.5 text-sm text-white transition-colors hover:bg-neutral-800 cursor-pointer";
@@ -84,10 +83,12 @@ const LandingPage = ({ onNavigate }) => {
         <div className="pointer-events-none absolute inset-x-0 top-0 w-full max-md:h-dvh bg-white">
           <div className="relative overflow-hidden bg-white max-md:h-full">
             <img
-              src={wallpaper3}
+              src="/home.webp"
               alt=""
-              className="block w-full scale-[1.03] max-md:h-full max-md:object-cover max-md:object-top md:h-auto"
+             className="block w-full scale-[1.03] max-md:h-full max-md:object-cover max-md:object-top md:h-auto"
               style={WALLPAPER_MASK}
+              fetchPriority="high"
+              decoding="async"
             />
             <div
               className="absolute inset-x-0 bottom-0 h-[50%]"
@@ -134,7 +135,6 @@ const LandingPage = ({ onNavigate }) => {
       <div className="relative z-10 bg-white">
         <section className="">
           <div className="mx-auto max-w-2xl px-6 py-20 md:py-28">
-
             <div className="space-y-10">
               {HOW_IT_WORKS.map((paragraph) => (
                 <p
